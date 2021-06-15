@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Container,AppBar,Typography,Grow,Grid} from '@material-ui/core';
 import blog from './images/blog.jpg';
 import Posts from './components/Posts/Posts';
@@ -8,11 +8,13 @@ import {useDispatch} from 'react-redux';
 import {getPosts} from './actions/posts';
 
 const App=()=>{
+  const [currentId,setCurrentId]=useState(null);
   const classes=useStyles();
   const dispatch = useDispatch();
   useEffect(()=>{
     dispatch(getPosts());
-  },[dispatch]);
+    console.log('updateed ...');
+  },[currentId,dispatch]);
   return(
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
@@ -25,10 +27,10 @@ const App=()=>{
         <Container>
           <Grid container justify="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
-              <Posts/>
+              <Posts setCurrentId={setCurrentId}/>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form/>             
+              <Form currentId={currentId}  setCurrentId={setCurrentId}/>             
             </Grid>
           </Grid>
         </Container>
