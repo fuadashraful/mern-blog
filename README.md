@@ -3,7 +3,7 @@ I made this project to gain knowldedge on mern stack. I used functional componen
 i made api using express for data manifulation.frontend is done with react and backend with nodejs.
 ## Technology used
 React,redux,nodejs,mongodb,restapi,html5,css3
-#Quick Start
+# Quick Start
 1.Type " npm install " inside the backend directory ( Download Server Dependencies )
 2.Type " npm install " inside the frontend directory ( Download Front-end Dependencies )
 3.update mongodb url in .env file 
